@@ -10,7 +10,7 @@ R = randn(1, N);%get random numbers as vector
 dW = sqrt(dt) * R;
 
 for i = 1:N
-    X(i+1) = X(i) + f(prev) * dt + g(prev) * dW(i);
+    X(i+1) = X(i) + f(X(i)) * dt + g(X(i)) * dW(i);
 end
 
 end
