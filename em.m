@@ -6,16 +6,11 @@ t = 0:dt:T;
 X = zeros(1, N+1);%answer will be in this
 X(1) = X0;
 
+R = randn(1, N);%get random numbers as vector
+dW = sqrt(dt) * R;
+
 for i = 1:N
-    R = randn;
-    dW = sqrt(dt) * R;%as mentioned in the sources, scale with sqrt(dt)
-
-    prev = X(i);
-
-    fPrev = f(prev);
-    gPrev = g(prev);
-
-    X(i+1) = prev + fPrev * dt + gPrev * dW;
+    X(i+1) = X(i) + f(prev) * dt + g(prev) * dW(i);
 end
 
 end
