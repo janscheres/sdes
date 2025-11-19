@@ -2,4 +2,7 @@
 
 `euler_maruyama.m` contains the code for a Euler-Maruyama Solver.
 
+`question2.m` contains the code for the numerical solutions to question 2, and for the graphing. 
+
+
 
