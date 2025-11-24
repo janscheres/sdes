@@ -4,7 +4,7 @@
 
 `question2.m` contains the code for the numerical solutions to question 2, and for the graphing. 
 
-`Q3.m` contains the code and graphing for Q3
+`question3.m` contains the code and graphing for Q3
 
 
 
