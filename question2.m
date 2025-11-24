@@ -15,8 +15,8 @@ for k = 1:n
 end
 yline(0, 'k--', 'LineWidth', 2);
 title('Case A: Linear SDE ($f = -\theta X$)', 'Interpreter', 'latex', 'FontSize', 18);
-ylabel('X(t)', 'FontSize', 14);
-xlabel('Time, t', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+xlabel('Time, $t$', 'Interpreter', 'latex', 'FontSize', 14);
 grid on;
 
 
@@ -28,7 +28,7 @@ for k = 1:n
 end
 yline(X0, 'k--', 'LineWidth', 2);
 title('Case B: No Drift ($f = 0$)', 'Interpreter', 'latex', 'FontSize', 18);
-ylabel('X(t)', 'FontSize', 14);
-xlabel('Time, t', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+xlabel('Time, $t$', 'Interpreter', 'latex', 'FontSize', 14);
 grid on;
 hold off;
