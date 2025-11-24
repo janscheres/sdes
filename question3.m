@@ -18,8 +18,8 @@ for j = 1:length(dt_values)
     end
     yline(0, 'k--', 'LineWidth', 1.5);
 
-    title(sprintf('\\Deltat = %.2f', dt), 'FontSize', 14);
-    xlabel('t'); ylabel('X(t)');
+    title(sprintf('$\\Deltat = %.2f$', dt), 'Interpreter', 'latex', 'FontSize', 14);
+    xlabel('$t$', 'Interpreter', 'latex'); ylabel('$X(t)$', 'Interpreter', 'latex');
     grid on;
 end
 
