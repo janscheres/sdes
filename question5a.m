@@ -1,38 +1,39 @@
-% Paramters (subject to variability) 
-c = 1;
 T = 50;
 dt = 0.01;
 X_0 = 0.5;
 
-% Define the functions for the SDE
 f = @(x) x - x.^3;
-g = @(x) c;
 
-rng(1);
-[X, t] = euler_maruyama(f, g, T, dt, X_0);
+rng(1); % Ensure reproducibility
 
-% Graph
-plot(t,X, 'r');
+% Create figure with subplots
+figure;
+subplot(1, 3, 1);
+[X, t] = euler_maruyama(f, @(x) 0.1, T, dt, X_0);
+plot(t, X, 'r', 'LineWidth', 1.5);
 hold on;
-yline(0, '--k', 'LineWidth', 1);
+yline(0, '--k', 'LineWidth', 2.0);
 hold off;
-xlabel('$t$',  'Interpreter', 'latex');
-ylabel('$X(t)$',  'Interpreter', 'latex');
-title(['X_0 = ', num2str(X_0), ', c = ', num2str(c)]);
+xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+title('$c = 0.1$', 'Interpreter', 'latex', 'FontSize', 18);
 
-function [X, t] = euler_maruyama(f, g, T, dt, X0)
+subplot(1, 3, 2);
+[X, t] = euler_maruyama(f, @(x) 0.5, T, dt, X_0);
+plot(t, X, 'r', 'LineWidth', 1.5);
+hold on;
+yline(0, '--k', 'LineWidth', 1.5);
+hold off;
+xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+title('$c = 0.5$', 'Interpreter', 'latex', 'FontSize', 18);
 
-N = floor(T/dt);%number of timesteps in total
-t = 0:dt:T;
-
-X = zeros(1, N+1);%answer will be in this
-X(1) = X0;
-
-R = randn(1, N);%get random numbers as vector
-dW = sqrt(dt) * R;
-
-for i = 1:N
-    X(i+1) = X(i) + f(X(i)) * dt + g(X(i)) * dW(i);
-end
-
-end
+subplot(1, 3, 3);
+[X, t] = euler_maruyama(f, @(x) 1.0, T, dt, X_0);
+plot(t, X, 'r', 'LineWidth', 1.5);
+hold on;
+yline(0, '--k', 'LineWidth', 1.5);
+hold off;
+xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+title('$c = 1.0$', 'Interpreter', 'latex', 'FontSize', 18);
