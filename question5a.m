@@ -48,4 +48,4 @@ yline(0, '--k', 'LineWidth', 2.0);
 hold off;
 xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
 ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
-title(['$X_0 = ', num2str(X_0_new), '$, $c = ', num2str(c_new), '$'], 'Interpreter', 'latex', 'FontSize', 18);
+title('$X_0 = -0.5$, $c = 0.2$', 'Interpreter', 'latex', 'FontSize', 18);
