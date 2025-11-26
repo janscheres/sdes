@@ -37,3 +37,15 @@ hold off;
 xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
 ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
 title('$c = 1.0$', 'Interpreter', 'latex', 'FontSize', 18);
+
+%next plot:
+figure;
+[X_new, t_new] = euler_maruyama(f, @(x) 0.2, 500000, dt, -0.5);
+
+plot(t_new, X_new, 'r', 'LineWidth', 1.5);
+hold on;
+yline(0, '--k', 'LineWidth', 2.0);
+hold off;
+xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 14);
+ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
+title(['$X_0 = ', num2str(X_0_new), '$, $c = ', num2str(c_new), '$'], 'Interpreter', 'latex', 'FontSize', 18);
