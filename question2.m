@@ -6,29 +6,28 @@ dt = 0.01;
 n = 5;
 
 figure;
-
-subplot(2, 1, 1);
 hold on;
+
+h_case_a = plot(nan, nan, 'b', 'LineWidth', 1.5);%dummy plot to make legend work
+h_case_b = plot(nan, nan, 'r', 'LineWidth', 1.5);%dummy plot for legend
+
 for k = 1:n
     [X, t] = euler_maruyama(@(x) -theta*x, @(x) c, T, dt, X0);
-    plot(t, X, 'LineWidth', 1.5);
+    plot(t, X, 'b', 'LineWidth', 1.5);
 end
-yline(0, 'k--', 'LineWidth', 2);
-title('Case A: Linear SDE ($f = -\theta X$)', 'Interpreter', 'latex', 'FontSize', 18);
-ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
-xlabel('Time, $t$', 'Interpreter', 'latex', 'FontSize', 14);
-grid on;
 
-
-subplot(2, 1, 2);
-hold on;
 for k = 1:n
     [X, t] = euler_maruyama(@(x) 0, @(x) c, T, dt, X0);
-    plot(t, X, 'LineWidth', 1.5);
+    plot(t, X, 'r', 'LineWidth', 1.5);
 end
+
+yline(0, 'k--', 'LineWidth', 2);
 yline(X0, 'k--', 'LineWidth', 2);
-title('Case B: No Drift ($f = 0$)', 'Interpreter', 'latex', 'FontSize', 18);
+
 ylabel('$X(t)$', 'Interpreter', 'latex', 'FontSize', 14);
 xlabel('Time, $t$', 'Interpreter', 'latex', 'FontSize', 14);
+
+legend({'Case A: Linear SDE ($f = -\theta X$)', 'Case B: No Drift ($f = 0$)'}, 'Interpreter', 'latex', 'FontSize', 12);
+
 grid on;
 hold off;
